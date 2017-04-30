@@ -8,7 +8,7 @@ By running this script from your curriculum page from fenixedu, you can get the 
 
 ### How to use
 
-1. Go to your curriculum page
+1. Go to your [curriculum page](https://fenix.tecnico.ulisboa.pt/student/consult/curriculum) and click "View curricular plan"
 
 1. Open the browser's Dev tools (usually F12) and select the console
 
