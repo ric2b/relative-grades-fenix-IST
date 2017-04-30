@@ -18,11 +18,11 @@ for(const row of courserows) {
 
 // GET all the URIs, calculate all the things
 for(const uri of statsURIs) {
-	// get stats from a page
-	statspage = httpGet(uri);
+    // get stats from a page
+    statspage = httpGet(uri);
 
-	data = statspage.match(/data = (.*);/);
-	data = JSON.parse(data[1]);
+    data = statspage.match(/data = (.*);/);
+    data = JSON.parse(data[1]);
     stats(data);
 }
 
