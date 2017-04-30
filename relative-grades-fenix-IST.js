@@ -1,3 +1,31 @@
+function httpGet(url)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, false);
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
+
+courserows = document.getElementsByClassName("scplanenrollment");
+
+var statsURIs = [];
+for(const row of courserows) {
+    statsTag = row.getElementsByTagName("a")[1];
+    if(typeof statsTag != 'undefined') {
+        statsURIs.push(statsTag.href);
+    }
+}
+
+// GET all the URIs, calculate all the things
+for(const uri of statsURIs) {
+	// get stats from a page
+	statspage = httpGet(uri);
+
+	data = statspage.match(/data = (.*);/);
+	data = JSON.parse(data[1]);
+    stats(data);
+}
+
 function stats(data) {
     var myId = data["student"]["id"];
     var myGrade;
