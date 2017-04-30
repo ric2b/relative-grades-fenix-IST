@@ -16,6 +16,9 @@ for(const row of courserows) {
     }
 }
 
+// Print the column names
+console.log("Course name", '\t', "My Grade", '\t', "People above", '\t', "People tied", '\t', "People below", '\t', "In the top x%")
+
 // GET all the URIs, calculate all the things
 for(const uri of statsURIs) {
     // get stats from a page
@@ -33,7 +36,7 @@ function stats(data) {
     var finalGrades;
 
     data["evaluations"].forEach(function(grades) {
-        if(grades["name"] === "Pauta Final") {
+        if(grades["name"] === "Pauta Final" || grades["name"] === "Marksheet") {
             finalGrades = grades;
         }
     });
@@ -57,12 +60,5 @@ function stats(data) {
         } 
     });
 
-    console.log("total: ", total);
-    console.log("above: ", above);
-    console.log("same: ", same);
-    console.log("below: ", total-above-same);
-
-    console.log("you're in the top ", (above+1)/total, "%");
-
-    console.log(data["name"], '\t', myGrade, '\t', above, '\t', same, '\t', total-above-same)
+    console.log(data["name"], '\t', myGrade, '\t', above, '\t', same, '\t', total-above-same, '\t', 100 * (above+same/2)/total)
 }
