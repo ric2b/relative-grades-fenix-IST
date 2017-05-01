@@ -21,11 +21,9 @@ console.log("Course name", '\t', "My Grade", '\t', "People above", '\t', "People
 
 // GET all the URIs, calculate all the things
 for(const uri of statsURIs) {
-    // get stats from a page
-    statspage = httpGet(uri);
-
-    data = statspage.match(/data = (.*);/);
-    data = JSON.parse(data[1]);
+    statsPage = httpGet(uri);
+    data = statsPage.match(/data = (.*);/); // find the data in the page
+    data = JSON.parse(data[1]); // turn it into a JSON object
     stats(data);
 }
 
@@ -55,7 +53,7 @@ function stats(data) {
         if(!isNaN(element["grade"]) && element["grade"] > myGrade) {
             above += 1;
         } 
-        if(element["grade"] === myGrade) {
+        else if(element["grade"] === myGrade) {
             same += 1;
         } 
     });
