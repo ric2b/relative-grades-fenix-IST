@@ -12,7 +12,13 @@ By running this script from your curriculum page from fenixedu, you can get the 
 
 1. Open the browser's Dev tools (usually F12) and select the console
 
-1. Paste the script and press enter
+1. Paste the following snippet onto the console and press enter:
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://cdn.rawgit.com/ric2b/relative-grades-fenix-IST/master/relative-grades-fenix-IST.js';
+        document.head.appendChild(script);
+
 
 1. Copy the results into a spreadsheet program like Excel
 
