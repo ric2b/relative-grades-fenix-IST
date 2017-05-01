@@ -1,3 +1,5 @@
+separator = ','
+
 function httpGet(url)
 {
     var xmlHttp = new XMLHttpRequest();
@@ -58,5 +60,5 @@ function stats(data) {
         } 
     });
 
-    console.log(data["name"], '\t', myGrade, '\t', above, '\t', same, '\t', total-above-same, '\t', 100 * (above+same/2)/total)
+    console.log(data["name"], '\t', myGrade, '\t', above, '\t', same, '\t', total-above-same, '\t', (100 * (above+same/2)/total).toString().replace(/\./g, separator))
 }
