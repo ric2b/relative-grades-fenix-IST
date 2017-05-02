@@ -50,15 +50,23 @@ function stats(data) {
     var total = finalGrades["grades"].length;
     var above = 0;
     var same = 0;
+    var ne = 0; // was not evaluated
+    var re = 0; // had less than 10
 
     finalGrades["grades"].forEach(function(element) {
-        if(!isNaN(element["grade"]) && element["grade"] > myGrade) {
+        if(element["grade"] === "NE") {
+            ne += 1;
+        }
+        else if(element["grade"] === "RE") {
+            re += 1;
+        }
+        else if(element["grade"] > myGrade) {
             above += 1;
         } 
         else if(element["grade"] === myGrade) {
             same += 1;
-        } 
+        }
     });
 
-    console.log(data["name"], '\t', myGrade, '\t', above, '\t', same, '\t', total-above-same, '\t', (100 * (above+same/2)/total).toString().replace(/\./g, separator))
+    console.log(data["name"], '\t', myGrade, '\t', above, '\t', same, '\t', total-above-same-ne, '\t', (100 * (above+same/2)/(total-ne)).toString().replace(/\./g, separator))
 }
