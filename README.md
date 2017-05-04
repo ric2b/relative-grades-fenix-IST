@@ -19,6 +19,13 @@ By running this script from your curriculum page from fenixedu, you can get the 
         script.src = 'https://cdn.rawgit.com/ric2b/relative-grades-fenix-IST/master/relative-grades-fenix-IST.js';
         document.head.appendChild(script);
 
+    #### If you want to exclude non-evaluated students use this instead:
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://raw.githubusercontent.com/ric2b/relative-grades-fenix-IST/exclude-non-evaluated/relative-grades-fenix-IST.js';
+        document.head.appendChild(script);
+
 
 1. Copy the results into a spreadsheet program like Excel
 
